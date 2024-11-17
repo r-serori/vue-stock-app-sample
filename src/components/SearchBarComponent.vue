@@ -5,15 +5,20 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import { defineEmits } from "vue";
 
-// 親コンポーネントに検索用のイベントを送信
-const emit = defineEmits(["search"]);
-const searchTerm = ref("");
+// イベントの型定義
+const emit = defineEmits<{
+  (e: "search", term: string): void;
+}>();
 
-const onSearchInput = () => {
+// 検索キーワード
+const searchTerm = ref<string>("");
+
+// 検索イベントを送信
+const onSearchInput = (): void => {
   emit("search", searchTerm.value);
 };
 </script>

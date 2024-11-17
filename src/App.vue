@@ -2,7 +2,7 @@
   <StockListPageComponent />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import StockListPageComponent from "./components/StockListPageComponent.vue";
 
 </script>

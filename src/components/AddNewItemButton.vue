@@ -2,13 +2,16 @@
   <button @click="onAddClick" class="add-button">新規登録</button>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { defineEmits } from "vue";
 
-// 新規登録イベントを送信
-const emit = defineEmits(["add"]);
+// イベントの型定義
+const emit = defineEmits<{
+  (e: "add"): void;
+}>();
 
-const onAddClick = () => {
+// 新規登録イベントを送信
+const onAddClick = (): void => {
   emit("add");
 };
 </script>

@@ -17,16 +17,20 @@
   </table>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { defineProps } from "vue";
 
+// アイテムの型定義
+interface Item {
+  name: string;
+  price: number;
+  inStock: boolean;
+}
+
 // テーブルデータのプロパティを受け取る
-const props = defineProps({
-  data: {
-    type: Array,
-    required: true,
-  },
-});
+const props = defineProps<{
+  data: Item[];
+}>();
 </script>
 
 <style>
